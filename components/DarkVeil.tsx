@@ -101,6 +101,7 @@ export default function DarkVeil({
 
 	// Ensure component is mounted before checking theme
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setMounted(true)
 	}, [])
 

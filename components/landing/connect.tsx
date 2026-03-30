@@ -56,7 +56,7 @@ export function Connect() {
               key={index}
               href={item.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className={cn(badgeVariants({ variant: "secondary" }), "text-sm")}
               variants={variants}
               initial="initial"

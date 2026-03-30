@@ -103,28 +103,27 @@ export const siteConfig: SiteConfig = {
 	metadata: {
 		title: {
 			default:
-				"Raya Adinda - Full Stack Developer | React, Next.js, TypeScript",
+				"Raya Adinda - Lorem Ipsum Portfolio",
 			template: "%s | Raya Adinda",
 		},
 		description:
-			"I am a full stack developer with over 3+ years of experience in building web applications, specializing in rapid MVP development. I leverage modern technologies to create scalable and efficient solutions.",
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		keywords: [
 			"Raya Adinda",
-			"Full Stack Developer",
+			"Lorem Ipsum",
 			"Portfolio",
 			"Web Developer",
 			"React",
 			"Next.js",
 			"TypeScript",
-			"Mobile Developer",
-			"MVP Development",
-			"Indonesia Developer",
-			"Bangkit Academy",
+			"Frontend",
+			"Backend",
+			"UI",
 			"Frontend Developer",
 			"Backend Developer",
-			"UI/UX",
+			"Design",
 		],
-		authors: [{ name: "Raya Adinda", url: "https://rayaadinda.dev" }],
+		authors: [{ name: "Raya Adinda", url: urls.public }],
 		creator: "Raya Adinda",
 		publisher: "Raya Adinda",
 		robots: {
@@ -139,30 +138,27 @@ export const siteConfig: SiteConfig = {
 			},
 		},
 		alternates: {
-			canonical: "https://rayaadinda.dev",
+			canonical: urls.public,
 		},
-		// Ensure absolute URLs generated for /og and canonical tags
-		metadataBase: new URL("https://rayaadinda.dev"),
+		metadataBase: new URL(urls.public),
 		openGraph: {
-			title: "Raya Adinda - Full Stack Developer",
+			title: "Raya Adinda - Lorem Ipsum Portfolio",
 			description:
-				"Personal portfolio showcasing my projects and expertise in full stack development.",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			type: "website",
 			locale: "en_US",
-			url: "https://rayaadinda.dev",
-			siteName: "Raya Adinda - Full Stack Developer",
+			url: urls.public,
+			siteName: "Raya Adinda - Lorem Ipsum Portfolio",
 			images: [
-				// Dynamic OG
 				{
-					url: "/og", // served by app/og/route.ts
-					alt: "Raya Adinda - Full Stack Developer",
+					url: "/og",
+					alt: "Raya Adinda - Lorem Ipsum Portfolio",
 					width: 1200,
 					height: 630,
 				},
-				// Static fallback (optional second image)
 				{
-					url: "https://res.cloudinary.com/dpsofmxsd/image/upload/v1755146395/Screenshot_2025-08-14_113916_jfw7hs.png",
-					alt: "Raya Adinda - Full Stack Developer (Static Fallback)",
+					url: "https://via.placeholder.com/1200x630.png?text=Portfolio+Template",
+					alt: "Portfolio Template OpenGraph Preview",
 					width: 1200,
 					height: 630,
 				},
@@ -170,21 +166,21 @@ export const siteConfig: SiteConfig = {
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: "Raya Adinda - Full Stack Developer",
+			title: "Raya Adinda - Lorem Ipsum Portfolio",
 			description:
-				"Personal portfolio showcasing my projects and expertise in full stack development.",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			images: [
 				"/og",
-				"https://res.cloudinary.com/dpsofmxsd/image/upload/v1755146395/Screenshot_2025-08-14_113916_jfw7hs.png",
+				"https://via.placeholder.com/1200x630.png?text=Portfolio+Template",
 			],
 		},
 	},
 	banner: {
 		enabled: true,
 		variant: "success",
-		message: "Open to work and internship opportunities!",
+		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 		emoji: "🚀",
-		ctaLabel: "Contact me",
+		ctaLabel: "Lorem ipsum",
 		ctaHref: urls.bookCall,
 		dismissible: true,
 	},
@@ -192,46 +188,45 @@ export const siteConfig: SiteConfig = {
 		logoImage: "/avatar.jpg",
 		nav: [
 			{
-				title: "Projects",
+					title: "Lorem",
 				href: "/projects",
-				external: true,
 			},
 			{
-				title: "Github",
+					title: "Ipsum",
 				href: urls.github,
 				external: true,
 			},
 			{
-				title: "LinkedIn",
+					title: "Dolor",
 				href: urls.linkedin,
 				external: true,
 			},
 		],
 		button: {
-			label: "Book a Call",
+				label: "Lorem Ipsum",
 			href: urls.bookCall,
 		},
 	},
 	landing: {
 		hero: {
-			topLine: "👋 Hi there, I'm Raya Adinda. nice to meet you...",
+			topLine: "👋 Raya Adinda - Lorem ipsum dolor sit amet.",
 			h1: {
 				type: "multi-line",
 				content: [
-					"Web Dev, Mobile Dev, Palugada Dev.",
-					"✦ I focus on building your MVP.",
-					"✦ You focus on growing it fast.",
+					"Lorem ipsum dolor sit amet.",
+					"✦ Consectetur adipiscing elit.",
+					"✦ Sed do eiusmod tempor.",
 				],
 			},
 			description:
-				"Developer with over 3+ years of experience in building web applications, specializing in rapid MVP development. I leverage modern technologies to create scalable and efficient solutions.",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			actions: {
 				primary: {
-					label: "Hire me",
+					label: "Lorem ipsum",
 					href: urls.bookCall,
 				},
 				secondary: {
-					label: "Recent activity",
+					label: "Dolor sit amet",
 					href: "#activities",
 				},
 			},
@@ -241,177 +236,122 @@ export const siteConfig: SiteConfig = {
 		title: "Projects",
 		projects: [
 			{
-				title: "Unchain",
+				title: "PulseBoard",
 				description:
-					"Unchain is innovative mobile application that leverages artificial intelligence to help users understand, track, and overcome sugar addiction.",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 				image:
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/unchain.webp",
-				github: "https://github.com/unChain-Capstone",
-				livePreview: "https://github.com/unChain-Capstone/",
+					"https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
+				github: "https://github.com/your-username/pulseboard",
+				livePreview: "https://pulseboard-demo.vercel.app",
 			},
 			{
-				title: "UGC Management Hub",
+				title: "Relay Studio",
 				description:
-					"A dedicated web application for TDR Racing to manage User Generated Content (UGC). Built with Vite and React, it features Supabase integration for database needs, TanStack Query for efficient data handling, Apify for content scraping, and a sleek UI using shadcn/ui components.",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 				image:
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/UGC.gif",
+					"https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
+				github: "https://github.com/your-username/relay-studio",
+				livePreview: "https://relay-studio-demo.vercel.app",
 			},
 			{
-				title: "Snapify",
+				title: "Northwind Commerce",
 				description:
-					"Snapify is an interactive web project designed to simulate and modernize the photobooth experience.",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 				video:
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/2025-08-12%2017-56-01.mp4",
-				github: "https://github.com/rayaadinda/Snapify",
-				livePreview: "https://snapifynjz.vercel.app/",
+					"https://res.cloudinary.com/demo/video/upload/v1312461204/dog.mp4",
+				github: "https://github.com/your-username/northwind-commerce",
+				livePreview: "https://northwind-demo.vercel.app",
 			},
-
 			{
-				title: "Monogatari",
+				title: "Orbit Planner",
 				description:
-					"Monogatari is a full-stack blog application designed to replicate the clean reading and writing experience of Medium.",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 				image:
-					"https://res.cloudinary.com/dpsofmxsd/image/upload/v1754999507/monogatari.png",
-				github: "https://github.com/rayaadinda/frontend-monogatari",
-				livePreview: "https://monogatariv2.vercel.app/",
-			},
-			{
-				title: "Fern AI",
-				description:
-					"Fern AI is a chatbot summarizer document file using OpenRouter API",
-				video:
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/2025-08-13%2013-03-45.mp4",
-				github: "https://github.com/rayaadinda/Fern",
-				livePreview: "https://fernai.vercel.app/",
-			},
-			{
-				title: "Inventory Management System Dashboard",
-				description:
-					"An application to manage inventory effectively for CV Kurnia Jaya Industry providing features for tracking stock levels, orders, and sales.",
-				video:
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/2025-08-13%2013-20-39.mp4",
-				github: "https://github.com/rayaadinda/frontend-kp",
-				livePreview: "https://frontend-kp-gamma.vercel.app/",
-			},
-			{
-				title: "Temani",
-				description:
-					"AI‑assisted volunteer management for Indonesian Heritage Society (rosters, smart matching, impact analytics).",
-				video:
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/Untitled%20design.mp4",
-				github: "https://github.com/rayaadinda/Hackathon-Backend",
-				livePreview: "https://temani-sigma.vercel.app/",
-			},
-			{
-				title: "HPZ Crew Dashboard",
-				description:
-					"A comprehensive Next.js 15 crew dashboard application for TDR Racing HPZ Crew with approval based authentication, performance tracking, content management, and real-time analytics using Supabase.",
-				video:
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/2025-10-28%2016-26-53.mp4",
-				github: "https://github.com/rayaadinda/HPZCrew-Dashboard",
-			},
-
-			{
-				title: "HPZ Crew",
-				description:
-					"HPZ Crew frontend application built with React and Vite, providing a fast and modern web experience for the HPZ community.",
-				video:
-					"https://res.cloudinary.com/dpsofmxsd/video/upload/v1761645364/2025-10-28_16-23-37_zdkt6h.mp4",
-				github: "https://github.com/rayaadinda/HPZCrew",
-			},
-			{
-				title: "HPZ Crew Discord Bot",
-				description:
-					"Official Discord bot for HPZ Crew community with Supabase integration, featuring point system, tier management, mission tracking, leaderboard, and welcome system.",
-				github: "https://github.com/rayaadinda/bot-discord",
-			},
-			{
-				title: "HPZ Chatbot Backend",
-				description:
-					"Backend server for HPZ Crew Chatbot using Express.js and OpenRouter API with Llama 3.1, supporting Indonesian language commands and Supabase authentication.",
-				github: "https://github.com/rayaadinda/hpz-chatbot-backend",
+					"https://via.placeholder.com/1200x800.png?text=Orbit+Planner",
+				github: "https://github.com/your-username/orbit-planner",
+				livePreview: "https://orbit-planner-demo.vercel.app",
 			},
 		],
 	},
 	experience: {
-		title: "Work Experience",
+		title: "Lorem Ipsum",
 		experiences: [
 			{
-				company: "Maxy Academy",
-				position: "Frontend Developer Bootcamp",
+				company: "Lorem Corp",
+				position: "Ipsum Role",
 				description:
-					"Participated in an intensive frontend developer bootcamp, learning fundamental web development, React.js, Next.js, Expo React Native, and more through hands on projects and collaborative learning.",
-				duration: "2025 - Present",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				duration: "2024 - Present",
 			},
 			{
-				company: "Bangkit Academy",
-				position: "Mobile Developer",
+				company: "Dolor Studio",
+				position: "Sit Amet",
 				description:
-					"Developed mobile applications using Kotlin, focusing on user experience and performance optimization.",
-				duration: "2024 - 2025",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				duration: "2022 - 2024",
 			},
 			{
-				company: "Universitas Pamulang",
-				position: "Computer Science Student",
+				company: "Amet Works",
+				position: "Consectetur",
 				description:
-					"Studied various computer science topics, including algorithms, data structures, and software engineering principles.",
-				duration: "2022 - Present",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				duration: "2020 - 2022",
 			},
 		],
 	},
 	activities: {
-		title: "Recent Activity",
+		title: "Lorem Activity",
 		items: [
 			{
-				title: "Garuda Hacks 6.0",
+				title: "Lorem Event",
 				description:
-					"Built Temani in a 30‑hour hackathon: AI‑assisted volunteer management for Indonesian Heritage Society (rosters, smart matching, impact analytics).",
-				date: "2025-07-24",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				date: "2026-02-16",
 				images: [
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/Garuda-hacks/97b4b47b-e075-4077-ab2b-b95bb46ab47d.JPG",
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/Garuda-hacks/e8c0a49c-246a-4970-8c04-5b0b5ec13860.JPG",
-					"https://cdn-rayaadinda.sgp1.cdn.digitaloceanspaces.com/portfolio-raya/Garuda-hacks/IMG_4971.jpg",
+					"https://via.placeholder.com/1280x720.png?text=Meetup+Talk",
+					"https://via.placeholder.com/1280x720.png?text=Slides+Preview",
+					"https://via.placeholder.com/1280x720.png?text=Q%26A+Session",
 				],
-				link: "https://devpost.com/software/temani",
+				link: "https://github.com/your-username",
 			},
 			{
-				title: "Bangkit Academy",
+				title: "Ipsum Sprint",
 				description:
-					'Create "Unchain", an innovative mobile application that leverages artificial intelligence to help users understand, track, and overcome sugar addiction.',
-				date: "2025-01-25",
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				date: "2025-11-01",
 				images: [
-					"https://res.cloudinary.com/dpsofmxsd/image/upload/v1755062878/unchain_Team_tuq3by.jpg",
-					"https://res.cloudinary.com/dpsofmxsd/image/upload/v1755064753/bangkit_kb6qlr.png",
-					"https://res.cloudinary.com/dpsofmxsd/image/upload/v1755064221/IMG_0369_xuyu2q.png",
-					"https://res.cloudinary.com/dpsofmxsd/image/upload/v1755064236/Screenshot_2025-08-13_124944_mp1rw8.png",
+					"https://via.placeholder.com/1280x720.png?text=PR+Review+Session",
+					"https://via.placeholder.com/1280x720.png?text=Maintainer+Collaboration",
+					"https://via.placeholder.com/1280x720.png?text=Patch+Release",
+					"https://via.placeholder.com/1280x720.png?text=Retrospective",
 				],
-				link: "https://github.com/unChain-Capstone",
+				link: "https://github.com/your-username",
 			},
 		],
 	},
 	connect: {
-		title: "Connect",
-		email: "rayaadinda78@gmail.com",
+		title: "Lorem Connect",
+		email: "hello@your-portfolio.dev",
 		socials: [
 			{
 				label: "Github",
-				href: "https://github.com/rayaadinda",
+				href: urls.github,
 			},
 			{
 				label: "Linkedin",
-				href: "https://www.linkedin.com/in/rayaadinda/",
+				href: urls.linkedin,
 			},
 			{
-				label: "Spotify",
-				href: "https://open.spotify.com/user/31pg743zjzyci2xlhnbey6rk6vdu?si=720ff2cc893f45d4",
+				label: "X",
+				href: "https://x.com/your-handle",
 			},
 			{
-				label: "Instagram",
-				href: "https://www.instagram.com/fromrayacamera/",
+				label: "Dribbble",
+				href: "https://dribbble.com/your-handle",
 			},
 		],
 	},
 	footer: {
-		copyright: "© 2025 Raya Adinda",
+		copyright: "© 2026 Raya Adinda",
 	},
 }

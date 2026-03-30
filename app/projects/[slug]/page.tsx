@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { siteConfig } from "@/config/site"
+import { urls } from "@/config/urls"
 import { cn } from "@/lib/utils"
 import { ArrowLeftIcon, ArrowUpRightIcon, GithubIcon } from "lucide-react"
 import { Metadata } from "next"
@@ -19,6 +20,9 @@ import { notFound } from "next/navigation"
 type Props = {
 	params: Promise<{ slug: string }>
 }
+
+const baseUrl = urls.public
+const creatorName = siteConfig.metadata.creator || "Portfolio Owner"
 
 // Helper function to convert title to slug
 function titleToSlug(title: string): string {
@@ -48,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		}
 	}
 
-	const projectUrl = `https://rayaadinda.dev/projects/${slug}`
+	const projectUrl = `${baseUrl}/projects/${slug}`
 
 	return {
 		title: project.title,
@@ -96,10 +100,10 @@ export default async function ProjectDetailPage({ params }: Props) {
 		description: project.description,
 		author: {
 			"@type": "Person",
-			name: "Raya Adinda",
-			url: "https://rayaadinda.dev",
+			name: creatorName,
+			url: baseUrl,
 		},
-		url: `https://rayaadinda.dev/projects/${slug}`,
+		url: `${baseUrl}/projects/${slug}`,
 		...(project.image && { image: project.image }),
 		...(project.github && { codeRepository: project.github }),
 		...(project.livePreview && { sameAs: project.livePreview }),

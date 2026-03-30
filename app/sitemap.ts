@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next"
 import { siteConfig } from "@/config/site"
+import { urls } from "@/config/urls"
 
 // Helper function to convert title to slug
 function titleToSlug(title: string): string {
@@ -10,7 +11,7 @@ function titleToSlug(title: string): string {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const baseUrl = "https://rayaadinda.dev"
+	const baseUrl = urls.public
 
 	// Static pages
 	const staticPages: MetadataRoute.Sitemap = [

@@ -34,6 +34,7 @@ export function Banner() {
 	const banner = siteConfig.banner
 
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setIsMounted(true)
 		if (banner?.dismissible) {
 			const dismissed = localStorage.getItem(BANNER_STORAGE_KEY)

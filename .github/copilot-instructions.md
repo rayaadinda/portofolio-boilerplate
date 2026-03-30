@@ -2,122 +2,92 @@
 
 ## Project Overview
 
-This is a Next.js 15 portfolio site using App Router, TypeScript, React 19, Tailwind CSS v4, and Motion (Framer Motion) for animations. The codebase follows a **single-page architecture** with modular landing sections controlled by centralized config.
+This is a Next.js 16 portfolio site (App Router) using React 19, TypeScript, Tailwind CSS v4, and Motion.
+The project follows a config-driven, single-page architecture for landing content.
 
-## Core Architecture
+## Architecture
 
-### Config-Driven Content (`config/site.ts`)
+### Config-Driven Content
 
-All portfolio content lives in `siteConfig` object—projects, experience, hero text, navigation, metadata, and social links. **Always edit `config/site.ts` to update content**, not individual components.
+All portfolio content is centralized in `config/site.ts` under `siteConfig`.
+Do not hardcode landing content in section components.
 
-Example pattern:
+Use `siteConfig` for:
+- hero copy and CTAs
+- projects, experience, and activities
+- header navigation and social links
+- SEO metadata
 
-```typescript
-export const siteConfig: SiteConfig = {
-  landing: { hero: { ... } },
-  projects: { projects: [...] },
-  activities: { items: [...] }
-}
-```
+### Component Boundaries
 
-### Component Structure
+- Landing sections: `components/landing/`
+- UI primitives: `components/ui/` (shadcn-style)
+- Shared providers: `components/providers/`
+- App routes and APIs: `app/`
 
-- **Landing sections**: `components/landing/` (hero, projects, activities, experience, connect)
-- **UI primitives**: `components/ui/` (shadcn/ui components - badge, button, dialog, drawer, etc.)
-- **Layout components**: `site-header.tsx`, `site-footer.tsx`, `page-header.tsx`
-- **Providers**: `components/providers/` wraps app with ThemeProvider, MotionProvider, Toaster
+### Client vs Server Components
 
-### Motion Animation Pattern
+Default to Server Components. Add `"use client"` only for hooks, local state, or browser APIs.
 
-Import Motion as `import * as m from "motion/react-m"` (reduced bundle size). Use `<LazyMotion>` wrapper in `motion-provider.tsx`. Animations use variant-based patterns:
+## Build and Validation
 
-```typescript
-const variants: Variants = {
-	initial: { opacity: 0, y: 20, filter: "blur(12px)" },
-	animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-}
-```
-
-### Styling Conventions
-
-- **Tailwind v4** with CSS variables theme system in `globals.css`
-- Custom utility `@utility focus-ring` for consistent focus states
-- `cn()` helper (`lib/utils.ts`) merges Tailwind classes with `clsx` and `tailwind-merge`
-- Container: `@apply max-w-3xl mx-auto px-4 xl:px-6` (defined in globals.css)
-- Use `oklch` color space for all theme colors
-
-### Responsive Dialog/Drawer Pattern
-
-See `components/contact-dialog.tsx` - switches between Dialog (desktop) and Drawer (mobile) using `useMediaQuery("(min-width: 768px)")`. This pattern keeps mobile UX native while desktop stays modal.
-
-## Key Features
-
-### Contact Form (`/api/contact/route.ts`)
-
-- Validates with Zod schema
-- Rate limiting: 5 requests per 10 min per IP
-- Honeypot field (`website`) for bot detection
-- Resend integration (optional via `RESEND_API_KEY`)
-- Returns JSON responses, no redirects
-
-### Image/Video Handling
-
-- Cloudinary CDN for all media (`res.cloudinary.com`)
-- Next.js Image with remote patterns configured in `next.config.ts`
-- Projects support both `image` OR `video` field (never both)
-
-### Theme System
-
-- `next-themes` with system detection
-- Dark mode uses same CSS custom properties with different OKLCH values
-- Toggle via `<ModeSwitcher />` in header
-
-## Development Workflow
-
-### Running the App
+Run these from the repo root:
 
 ```bash
-npm run dev      # Starts dev server with Turbopack
-npm run build    # Production build
-npm run lint     # ESLint check
+npm run dev
+npm run build
+npm run start
+npm run lint
 ```
 
-### Adding Content
+No dedicated automated test suite is currently defined in `package.json`.
 
-1. **New project**: Add object to `siteConfig.projects.projects[]` in `config/site.ts`
-2. **Change hero text**: Update `siteConfig.landing.hero` fields
-3. **Navigation links**: Edit `siteConfig.header.nav[]`
+## Conventions
 
-### Adding UI Components
+### Motion
 
-Components follow shadcn/ui patterns. Import path aliases:
+- Import motion as `import * as m from "motion/react-m"`
+- Use `m.div`, `m.section`, etc. (not `motion.div`)
+- Keep animation patterns variant-based and reusable
 
-- `@/components` - Components directory
-- `@/lib` - Utilities
-- `@/config` - Configuration files
-- `@/hooks` - Custom hooks
+### Styling
 
-### TypeScript Patterns
+- Tailwind CSS v4 with theme variables in `app/globals.css`
+- Keep colors in OKLCH where theme variables are defined
+- Use the shared `focus-ring` utility for focus states
+- Use `cn()` from `lib/utils.ts` for class merging
 
-- Strict mode enabled
-- Path alias `@/*` maps to root
-- Use `type` for shape definitions (e.g., `ProjectItem`, `SiteConfig`)
-- Prefer `interface` for component props
+### Links and Accessibility
 
-## Important Conventions
+- External links must include `target="_blank" rel="noopener noreferrer"`
+- Preserve keyboard-visible focus styles
 
-1. **Never hardcode content in components** - use `siteConfig` or props
-2. **Client components**: Add `"use client"` only when using hooks/interactions
-3. **Motion components**: Use `m.div`, `m.section` (not `motion.div`)
-4. **External links**: Add `target="_blank" rel="noopener noreferrer"` + external icon
-5. **Focus states**: Use custom `focus-ring` utility class
-6. **Metadata**: Update `siteConfig.metadata` for SEO (metadataBase is set)
+### Content and Data
 
-## Removed Features
+- Projects should use either `image` or `video`, not both
+- Update navigation/content through `config/site.ts`
+- Keep reusable URLs centralized in `config/urls.ts`
 
-- Blog/MDX system removed (see `source.config.ts` stub)
-- `/api/send` endpoint empty (contact uses `/api/contact`)
+## API Notes
 
-## Analytics
+`app/api/contact/route.ts` includes:
+- Zod validation
+- rate limiting (5 requests / 10 minutes / IP)
+- honeypot field (`website`)
+- optional Resend integration via `RESEND_API_KEY`
 
-Vercel Analytics enabled in `app/layout.tsx` via `<Analytics />` component.
+## Common Pitfalls
+
+- Hardcoding text in components instead of using `siteConfig`
+- Importing Motion from the wrong entrypoint
+- Adding `"use client"` to components that can remain server-rendered
+- Forgetting to add new image host patterns in `next.config.ts` when introducing a new CDN
+
+## Key Files
+
+- `config/site.ts`: Source of truth for portfolio content and metadata
+- `app/page.tsx`: Main landing composition
+- `app/projects/[slug]/page.tsx`: Project detail routing + metadata generation
+- `app/api/contact/route.ts`: Contact endpoint security and validation
+- `components/contact-dialog.tsx`: Responsive dialog/drawer interaction pattern
+- `components/providers/providers.tsx`: Provider composition order

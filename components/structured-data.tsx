@@ -1,12 +1,23 @@
 import { siteConfig } from "@/config/site"
+import { urls } from "@/config/urls"
+
+const baseUrl = urls.public
+const profileName = siteConfig.metadata.creator || "Portfolio Owner"
+const metadataTitle = siteConfig.metadata.title
+const siteTitle =
+	typeof metadataTitle === "string"
+		? metadataTitle
+		: metadataTitle && "default" in metadataTitle
+			? metadataTitle.default
+			: "Portfolio"
 
 export function StructuredData() {
 	const personSchema = {
 		"@context": "https://schema.org",
 		"@type": "Person",
-		name: "Raya Adinda",
-		url: "https://rayaadinda.dev",
-		image: "https://rayaadinda.dev/avatar.jpg",
+		name: profileName,
+		url: baseUrl,
+		image: `${baseUrl}/avatar.jpg`,
 		jobTitle: "Full Stack Developer",
 		description: siteConfig.metadata.description,
 		email: siteConfig.connect.email,
@@ -17,12 +28,12 @@ export function StructuredData() {
 	const websiteSchema = {
 		"@context": "https://schema.org",
 		"@type": "WebSite",
-		name: "Raya Adinda - Full Stack Developer",
-		url: "https://rayaadinda.dev",
+		name: siteTitle,
+		url: baseUrl,
 		description: siteConfig.metadata.description,
 		author: {
 			"@type": "Person",
-			name: "Raya Adinda",
+			name: profileName,
 		},
 		inLanguage: "en-US",
 	}
@@ -32,18 +43,18 @@ export function StructuredData() {
 		"@type": "ProfilePage",
 		mainEntity: {
 			"@type": "Person",
-			name: "Raya Adinda",
-			alternateName: "Rey",
+			name: profileName,
+			alternateName: profileName,
 			description: siteConfig.metadata.description,
-			image: "https://rayaadinda.dev/avatar.jpg",
-			url: "https://rayaadinda.dev",
+			image: `${baseUrl}/avatar.jpg`,
+			url: baseUrl,
 			sameAs: siteConfig.connect.socials.map((social) => social.href),
 			hasOccupation: {
 				"@type": "Occupation",
 				name: "Full Stack Developer",
 				occupationLocation: {
 					"@type": "Country",
-					name: "Indonesia",
+					name: "Remote",
 				},
 				skills: "React, Next.js, TypeScript, Node.js, Mobile Development, Web Development",
 			},
@@ -58,13 +69,13 @@ export function StructuredData() {
 				"@type": "ListItem",
 				position: 1,
 				name: "Home",
-				item: "https://rayaadinda.dev",
+				item: baseUrl,
 			},
 			{
 				"@type": "ListItem",
 				position: 2,
 				name: "Projects",
-				item: "https://rayaadinda.dev/projects",
+				item: `${baseUrl}/projects`,
 			},
 		],
 	}

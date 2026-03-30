@@ -6,28 +6,31 @@ import {
 	PageHeading,
 } from "@/components/page-header"
 import { siteConfig } from "@/config/site"
+import { urls } from "@/config/urls"
 import { Metadata } from "next"
 import { ProjectItem } from "./project-item"
 
+const projectsUrl = `${urls.public}/projects`
+
 export const metadata: Metadata = {
-	title: "All Projects",
+	title: "Lorem Ipsum",
 	description:
-		"Explore all my projects including web applications, mobile apps, and backend systems built with modern technologies like React, Next.js, TypeScript, and more.",
+		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 	openGraph: {
-		title: "All Projects - Raya Adinda",
+		title: "Lorem Ipsum - Portfolio",
 		description:
-			"Explore all my projects including web applications, mobile apps, and backend systems built with modern technologies.",
-		url: "https://rayaadinda.dev/projects",
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		url: projectsUrl,
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "All Projects - Raya Adinda",
+		title: "Lorem Ipsum - Portfolio",
 		description:
-			"Explore all my projects including web applications, mobile apps, and backend systems.",
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 	},
 	alternates: {
-		canonical: "https://rayaadinda.dev/projects",
+		canonical: projectsUrl,
 	},
 }
 
@@ -35,10 +38,10 @@ export default function ProjectsPage() {
 	return (
 		<PageContainer>
 			<PageHeader>
-				<PageHeading>All Projects</PageHeading>
+				<PageHeading>Lorem Ipsum</PageHeading>
 				<PageDescription>
-					A comprehensive collection of my work spanning web development, mobile
-					applications, and backend systems.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				</PageDescription>
 			</PageHeader>
 			<PageContent>

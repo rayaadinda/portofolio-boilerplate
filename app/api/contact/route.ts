@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { Resend } from "resend"
 import { z } from "zod"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const contactRecipient = process.env.CONTACT_EMAIL
 
 const ipHits: Map<string, number[]> = new Map()
 const WINDOW_MS = 10 * 60 * 1000
@@ -77,10 +77,18 @@ export async function POST(req: Request) {
 		}\nIP: ${ip}\n\nMessage:\n${message}`
 
 		if (process.env.RESEND_API_KEY) {
+			if (!contactRecipient) {
+				return NextResponse.json(
+					{ message: "Missing CONTACT_EMAIL server configuration" },
+					{ status: 500 }
+				)
+			}
+
 			try {
+				const resend = new Resend(process.env.RESEND_API_KEY)
 				await resend.emails.send({
 					from: "Portfolio Contact <onboarding@resend.dev>",
-					to: "rayaadinda78@gmail.com",
+					to: contactRecipient,
 					replyTo: email,
 					subject,
 					text: body,
