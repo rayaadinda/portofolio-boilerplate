@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to Orbit Portfolio Template.
+Thanks for contributing to rayaadinda.
 
 ## Development
 

@@ -158,7 +158,7 @@ export const siteConfig: SiteConfig = {
 				},
 				{
 					url: "https://via.placeholder.com/1200x630.png?text=Portfolio+Template",
-					alt: "Portfolio Template OpenGraph Preview",
+					alt: "rayaadinda OpenGraph Preview",
 					width: 1200,
 					height: 630,
 				},
@@ -263,13 +263,13 @@ export const siteConfig: SiteConfig = {
 				livePreview: "https://northwind-demo.vercel.app",
 			},
 			{
-				title: "Orbit Planner",
+				title: "Portfolio Planner",
 				description:
 					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 				image:
-					"https://via.placeholder.com/1200x800.png?text=Orbit+Planner",
-				github: "https://github.com/your-username/orbit-planner",
-				livePreview: "https://orbit-planner-demo.vercel.app",
+					"https://via.placeholder.com/1200x800.png?text=Portfolio+Planner",
+				github: "https://github.com/your-username/portfolio-planner",
+				livePreview: "https://portfolio-planner-demo.vercel.app",
 			},
 		],
 	},

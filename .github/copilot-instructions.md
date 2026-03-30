@@ -1,4 +1,4 @@
-# Copilot Instructions for Orbit Portfolio
+# Copilot Instructions for rayaadinda
 
 ## Project Overview
 
